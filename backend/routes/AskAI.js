@@ -5,7 +5,7 @@ require('dotenv').config();
 
 // Initialize OpenAI with your API key
 const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY || "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",
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 async function getGroqChatCompletion(message) {
