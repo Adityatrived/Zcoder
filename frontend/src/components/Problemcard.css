@@ -1,0 +1,163 @@
+/* problem-card.css */
+
+
+.problem-card {
+  border: 1px solid var(--tertiary-accent);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--secondary-background);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 2px 8px rgba(39, 35, 67, 0.08);
+  max-width: 800px;
+}
+
+.problem-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(39, 35, 67, 0.12);
+  background-color: var(--primary-background);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+
+.problem-title {
+  flex-grow: 1;
+  color: var(--highlight);
+  letter-spacing: 0.1px;
+  font-weight: 50;
+}
+
+.card-info {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--text-secondary);
+  align-items:center;
+}
+
+.difficulty {
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 1.1rem;
+   
+  letter-spacing: 0.5px;
+}
+
+.difficulty.easy {
+  color: var(--success);
+  background-color: rgba(52, 199, 89, 0.1);
+}
+
+.difficulty.medium {
+  color: var(--warning);
+  background-color: rgba(255, 204, 0, 0.1);
+}
+
+.difficulty.hard {
+  color: var(--error);
+  background-color: rgba(255, 76, 76, 0.1);
+}
+
+.accuracy {
+  font-weight: 500;
+  color: var(--text-secondary);
+  opacity: 0.9;
+}
+
+.tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--tertiary-accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--highlight);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background-color: var(--primary-accent);
+  color: var(--text-secondary);
+}
+
+/* Update the bookmark button styles */
+.bookmark-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: auto;
+  padding: 1px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; /* Fixed width for consistency */
+  height: 42px; /* Fixed height for better click area */
+}
+
+.bookmark-button .icon {
+  stroke: var(--text-secondary);
+  width: 24px; /* Slightly larger icon */
+  height: 24px;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  stroke-width: 1.5;
+}
+
+
+.bookmark-button:hover .icon {
+  transform: scale(1.2);
+  stroke: var(--primary-accent);
+}
+
+.bookmarked .icon {
+  stroke: var(--primary-accent);
+  fill: var(--primary-accent);
+  animation: gentlePop 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes gentlePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* Platform indicator */
+.platform {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.platform::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary-accent);
+  border-radius: 2px;
+}

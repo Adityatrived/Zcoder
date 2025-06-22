@@ -1,0 +1,282 @@
+/* Container and Layout - Fixed for proper resizing */
+.app-container {
+  width: 100%;
+  padding: 2rem 1rem;
+  color: var(--text-primary);
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.resizable-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100vh - 4rem); /* Account for padding */
+  gap: 0;
+  position: relative;
+}
+
+/* Panels - Fixed for resizing */
+.panel {
+  background-color: var(--teritary-background);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  padding: 1.5rem;
+  border: 1px solid var(--highlight);
+  overflow: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.left-panel {
+  /* Removed fixed width - now controlled by JavaScript */
+  flex-shrink: 0;
+}
+
+.right-panel {
+  /* Removed fixed width - now controlled by JavaScript */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* Divider - Enhanced for better interaction */
+.divider {
+  width: 8px;
+  background-color: var(--highlight);
+  cursor: col-resize;
+  border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.2s ease;
+  z-index: 10;
+  user-select: none;
+}
+
+.divider:hover {
+  background-color: var(--primary-accent);
+}
+
+.divider.resizing {
+  background-color: var(--primary-accent);
+}
+
+/* Make divider more interactive - UPDATED */
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  right: -8px;
+  bottom: 0;
+  cursor: col-resize;
+}
+
+/* Divider grip indicator */
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 1px;
+}
+
+/* ADD: Prevent text selection during resize */
+.resizable-container.resizing {
+  user-select: none;
+}
+
+.resizable-container.resizing * {
+  user-select: none;
+}
+/* Your existing styles with resizing support */
+.problem-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.problem-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--primary-accent);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--highlight);
+  padding-bottom: 0.5rem;
+}
+
+.bookmark-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.bookmark-button.bookmarked {
+  color: var(--primary-accent);
+}
+
+.difficulty-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.difficulty-easy {
+  color: #2ecc71;
+}
+.difficulty-medium {
+  color: #f39c12;
+}
+.difficulty-hard {
+  color: #e74c3c;
+}
+
+.question-content {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.question-content pre {
+  background-color: var(--primary-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--highlight);
+  overflow-x: auto;
+}
+
+.sample-tests-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-accent);
+  margin-top: 2rem;
+}
+
+.sample-tests-box {
+  background-color: rgba(0, 212, 255, 0.1);
+  padding: 1rem;
+  border-radius: 0.375rem;
+  white-space: pre-wrap;
+  border: 1px solid var(--highlight);
+  font-family: 'Courier New', monospace;
+  margin-bottom: 1rem;
+}
+
+.tags-container {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--secondary-accent);
+  background-color: rgba(123, 44, 191, 0.2);
+  color: var(--secondary-accent);
+}
+
+.tag:hover {
+  background-color: var(--secondary-accent);
+  color: white;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.submit-button {
+  background-color: var(--primary-accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #00b8e6;
+}
+
+.submit-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.discussions-button {
+  background-color: var(--secondary-accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.discussions-button:hover {
+  background-color: #6a1db8;
+}
+
+.submission-result {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-left: 4px solid;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.submission-result.success {
+  background-color: #e6ffed;
+  color: var(--success);
+  border-color: var(--success);
+}
+
+.submission-result.error {
+  background-color: #ffe6e6;
+  color: var(--error);
+  border-color: var(--error);
+}
+
+.error-message {
+  color: var(--error);
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.125rem;
+}
+
+/* Responsive Design - Updated for your structure */
+@media (max-width: 768px) {
+  .resizable-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .left-panel,
+  .right-panel {
+    width: 100%   ;
+    height: auto;
+    min-width: unset;
+    margin: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .right-panel {
+    margin-bottom: 0;
+  }
+  
+  .divider {
+    display: none;
+  }
+}

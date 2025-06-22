@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.register-container {
+  background: var(--secondary-background);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--primary-accent);
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  transition: transform 0.5s ease;
+  margin: 1rem;
+}
+
+.register-container:hover {
+  transform: translateZ(20px);
+}
+
+#register-form {
+  text-align: left;
+}
+
+.register-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+.register-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(123, 44, 191, 0.6);
+  background: linear-gradient(135deg, #00e1ff 0%, #8a2be2 100%);
+}
+
+.register-footer {
+  color: var(--text-primary);
+  text-align: center;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+
+.register-footer a {
+  color: var(--primary-accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.register-footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-accent);
+  transition: width 0.3s ease;
+}
+
+.register-footer a:hover::after {
+  width: 100%;
+}
+
+#register-error-msg {
+  color: var(--error);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: large;
+  text-shadow: 0 0 3px rgba(255, 76, 76, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .register-container {
+    padding: 2rem;
+    border-radius: 14px;
+  }
+  
+  .register-button {
+    padding: 14px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+  
+  #register-error-msg {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .register-container {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+  
+  .register-button {
+    padding: 12px;
+  }
+  
+  .register-footer {
+    font-size: 0.9rem;
+  }
+}

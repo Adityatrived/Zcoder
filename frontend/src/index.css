@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+ :root {
+  --primary-background: #fffffe;
+  --primary-accent: #6246ea;
+  --text-primary: #2b2c34;
+
+  --secondary-background: #d1d1e9 ;
+  --secondary-accent: #4361ee;
+  --text-secondary: black;
+
+  --teritary-background: #fffffe;
+  --teritary-accent: #6246ea;
+  --text-teritary: #fffffe;
+
+  --highlight: #6246ea;
+  --success: #34C759;
+  --error: #FF4C4C;
+}
+
+ :root .style-1{
+  --primary-background: #fffffe;
+  --primary-accent: #6246ea;
+  --text-primary: #2b2c34;
+
+  --secondary-background: #d1d1e9 ;
+  --secondary-accent: #4361ee;
+  --text-secondary: black;
+
+  --teritary-background: #fffffe;
+  --teritary-accent: #6246ea;
+  --text-teritary: #fffffe;
+
+  --highlight: #6246ea;
+  --success: #34C759;
+  --error: #FF4C4C;
+}
+
+ :root .style-2{
+  --primary-background: #0f0e17;
+  --primary-accent: #ff8906;
+  --text-primary: #fffffe;
+
+  --secondary-background: #fffffe ;
+  --secondary-accent: #f25f4c;
+  --text-secondary: #2e2f3e;
+
+  --teritary-background: #0f0e17;
+  --teritary-accent: #6246ea;
+  --text-teritary: #2e2f3e;
+
+  --highlight: #e53170;
+  --success: #34C759;
+  --error: #FF4C4C;
+}
+
+ :root .style-3{
+  --primary-background: #f9f4ef;
+  --primary-accent: #8c7851;
+  --text-primary: #020826;
+
+  --secondary-background: #fffffe;
+  --secondary-accent: #716040;
+  --text-secondary: #716040;
+
+  --teritary-background: #eaddcf;
+  --teritary-accent: #fffffe;
+  --text-teritary: #716040;
+
+  --highlight: #8c7851;
+  --success: #34C759;
+  --error: #FF4C4C;
+}
+
+body {
+  background: var(--primary-background);
+  color: var(--text-primary);
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(135deg, var(--primary-background) 0%, var(--secondary-background) 100%);
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;  /* Vertical scrollbar width */
+  height: 8px; /* Horizontal scrollbar height */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary-background);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-accent);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight);
+}
